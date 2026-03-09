@@ -4,7 +4,7 @@
 
 # Accept two arugments: the two FASTA filesnames, present in data/
 
-if [ "$#" -ne 2]; then 
+if [ "$#" -ne 2 ]; then 
 echo "usage: $0 <seq1.fa> <seq2.fa>" >&2
 exit 1 
 fi
@@ -17,11 +17,11 @@ file2="$2"
 
 #to verify that  both files exist. if not, an error message will print:
 
-if [ ! -f "file1" ]; then
+if [ ! -f "$file1" ]; then
 echo "Error: File '$file1' does not exist." >&2
 exit 1
 fi
-if [ ! -f "file2" ]; then
+if [ ! -f "$file2" ]; then
 echo "Error: file '$file2' does not exist." >&2
 exit 1
 fi
@@ -49,7 +49,7 @@ seq2=$(grep -v '^>' "$file2" | tr -d '\n')
 len1=${#seq1}
 len2=${#seq2}
 
-if [ "$len1 -ne "$len2" ]; then echo "Error: sequences must be of the same length..." >&2
+if [ "$len1" -ne "$len2" ]; then echo "Error: sequences must be of the same length..." >&2
 exit 1
 fi
 echo "Sequences are of same length! ($len1 bases)."
