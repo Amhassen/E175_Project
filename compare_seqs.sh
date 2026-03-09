@@ -54,3 +54,18 @@ exit 1
 fi
 echo "Sequences are of same length! ($len1 bases)."
 
+
+
+#comparing the two sequences position-by-position:
+
+for (( i=0; i<len1; i++)); do 
+base1="${seq1:i:1}"
+base2="${seq2:i:1}"
+if [ "$base1" != "$base2" ]; then echo "$((i+1)) $base1 $base2"
+fi
+done
+
+
+#the first line is the loop setup, line 2 and 3 extract one base from each sequence. if a mismatch is found, the echo line prints out the mismatch 
+#position.
+
