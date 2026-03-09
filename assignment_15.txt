@@ -1,0 +1,65 @@
+Sequence Comparison Report
+================================================================================
+
+SCRIPT PURPOSE AND REQUIRED FEATURES
+-------------------------------------
+Write a bash script called compare_seqs.sh that compares two DNA sequences of
+equal length and reports their differences. The script should:
+
+- Accept two arguments: two FASTA filenames, each containing a single sequence
+- Verify both files exist and each contains exactly one sequence. If a file
+  contains more than one sequence (more than one header line starting with >),
+  print an error message and exit.
+- Verify both sequences are the same length (exit with error if not)
+- Compare the sequences position by position and report each mismatch with its
+  position (1-based), the base in sequence 1, and the base in sequence 2
+- Classify each mismatch as a transition (A<->G or C<->T) or transversion
+- Print a summary: sequence length, number of identical positions, number of
+  mismatches, percent identity, and the transition/transversion ratio
+- Exit with an error message if arguments are missing or files do not exist
+
+EXPECTED INPUT AND OUTPUT
+--------------------------
+Input: Two FASTA files, each with one sequence.
+
+Output: Mismatch details and summary statistics.
+
+EXAMPLE
+-------
+Given seq1.fa:
+
+  >sequence1
+  ATCGATCGATCG
+
+And seq2.fa:
+
+  >sequence2
+  ATCAATCGTTCG
+
+Running:
+  ./compare_seqs.sh seq1.fa seq2.fa
+
+Expected output:
+  === Mismatches ===
+  Position 4: G -> A (transition)
+  Position 9: A -> T (transversion)
+
+  === Summary ===
+  Length: 12
+  Identical: 10
+  Mismatches: 2
+  Identity: 83.33%
+  Transitions: 1
+  Transversions: 1
+  Ti/Tv ratio: 1.00
+
+SUBMISSION INSTRUCTIONS
+------------------------
+1. Create a public GitHub repository for this assignment.
+2. The repository should contain:
+   - compare_seqs.sh (the script, executable)
+   - README.md explaining what the script does, how to run it, and any
+     dependencies
+   - test.sh (a test script that creates sample input, runs compare_seqs.sh,
+     and checks the output against expected results, reporting pass or fail)
+3. Submit the HTTPS URL of your GitHub repository.
