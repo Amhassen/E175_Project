@@ -38,3 +38,19 @@ exit 1
 fi
 echo "Both files exist and contain exactly one sequence :)"
 
+#to check if both sequences are of the same length:
+
+#first, remove header lines (in the case of the sequences I have, they are both one-line long, but if we were comparing sequences that stretch across 
+#multiple lines, "tr -d '\n'" would ensure that the sequence is uninterrupted by start-of-line characters.
+
+seq1=$(grep -v '^>' "$file1" | tr -d '\n')
+seq2=$(grep -v '^>' "$file2" | tr -d '\n')
+
+len1=${#seq1}
+len2=${#seq2}
+
+if [ "$len1 -ne "$len2" ]; then echo "Error: sequences must be of the same length..." >&2
+exit 1
+fi
+echo "Sequences are of same length! ($len1 bases)."
+
