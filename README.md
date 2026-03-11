@@ -1,3 +1,14 @@
+
+#Project objective: to compare two DNA sequecnes of equal lengh and report the differences between the two. sequences provided in the form of .fa files
+#one sequence per file. statistics reported are: Mismatch position, mismatch type, sequence length, Ti/Tv ratio, and  percent identity.
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+
 #Commit history:
 #1: linked project to directory and created placeholder files .
 
@@ -37,4 +48,22 @@
 #script is ran with the values from all the tasks that the script computed. I created another test final name final_testing.txt and this
 #is the output of ./compare_seqs.sh data/seq1.fa data/seq2.fa at the final completed version of the script.
 
+
+
+#8: added test.sh with multiple scenarios for fails, one edge case, and one normal case. 
+
+
+
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#tutorial:
+#this script requires to fasta sequences in two distinct files if there are multiple sequences per file, an error message will appear.
+# the two files must have NO headers, or anything besides the DNA sequence.
+#the script goes through the sequence base-by-base. so both sequences need to be of the same exact length, otherwise an error message will 
+#display stating that sequences must be of the same length. 
+#the sequences I used to test the script were 60Bp long, but it will work just fine for longer sequences, as long as the above conditions are met.
 
