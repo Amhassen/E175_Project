@@ -67,3 +67,14 @@
 #display stating that sequences must be of the same length. 
 #the sequences I used to test the script were 60Bp long, but it will work just fine for longer sequences, as long as the above conditions are met.
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#ACKNOWLEDGEMENTS:
+# Generative AI was used in debugging and defining scoring statements. additionally, AI was used in coming up with ideas for Error codes for the test.sh 
+#script.
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Dependencies:
+#no dependencies required to run the bash script, assuming that the fasta file data is present within the same main directory as the script inside a 
+#subdirectory named /data/
+
