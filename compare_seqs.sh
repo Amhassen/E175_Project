@@ -55,17 +55,43 @@ fi
 echo "Sequences are of same length! ($len1 bases)."
 
 
+#setting up a counter for calssifying mismatch type:
+
+identical=0
+mismatches=0
+transitions=0
+transversions=0
 
 #comparing the two sequences position-by-position:
 
-for (( i=0; i<len1; i++)); do 
-base1="${seq1:i:1}"
-base2="${seq2:i:1}"
-if [ "$base1" != "$base2" ]; then echo "$((i+1)) $base1 $base2"
-fi
+for (( i=0; i<len1; i++ )); do
+    base1="${seq1:i:1}"
+    base2="${seq2:i:1}"
+
+    if [ "$base1" = "$base2" ]; then
+        ((identical++))
+    else
+        ((mismatches++))
+
+        if { [ "$base1" = "A" ] && [ "$base2" = "G" ]; } || \
+           { [ "$base1" = "G" ] && [ "$base2" = "A" ]; } || \
+           { [ "$base1" = "C" ] && [ "$base2" = "T" ]; } || \
+           { [ "$base1" = "T" ] && [ "$base2" = "C" ]; }; then
+            type="transition"
+            ((transitions++))
+        else
+            type="transversion"
+            ((transversions++))
+        fi
+
+        echo "$((i+1)) $base1 $base2 $type"
+    fi
 done
 
 
-#the first line is the loop setup, line 2 and 3 extract one base from each sequence. if a mismatch is found, the echo line prints out the mismatch 
-#position.
+#the first line is the loop setup, line 2 and 3 extract one base from each sequence. if a mismatch is found, the subsequent lines will classify it 
+#as a mismatch and then group it into either a transition, or a transversion. after classifcation is done, echo is used to print out locations of 
+#mismatched bases, and the type of mismatch present.
+
+
 

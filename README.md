@@ -22,5 +22,12 @@
 #successful by running ./compare_seq/sh on the two correct target files, and the output was as expected. for any future debugging
 #I will document it in this file, and create a separate commit for it.
 
+#5: this commit contains the edits to this .md file. added lines to compare_seq.sh so that the script will now compare the two sequence base-by-base
+#and print out any mismatches found in the following order: position, then base at sequence 1, and then base at sequence 2.
+#additionally, I tested the script and sent the results to test2.txt, and then I manually verified the results.
 
 
+#6: this commit contains the calssification commands for transitions/transversions. the script from commit #5 above now will classify any mismatches 
+#into transitions (A to G), (C-T), or transversions (A to T). the resulting output is the position of the mismatch, followed by the base at sequence1
+#then the base at sequence 2, then the classification of the mismatch. I also created a file named testing_classification.txt and saved the output of the 
+#script in its current state to it.

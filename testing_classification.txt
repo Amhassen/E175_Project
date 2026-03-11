@@ -1,0 +1,7 @@
+both input files found!
+Both files exist and contain exactly one sequence :)
+Sequences are of same length! (60 bases).
+8 G A transition
+27 C T transition
+44 G A transition
+57 A T transversion
