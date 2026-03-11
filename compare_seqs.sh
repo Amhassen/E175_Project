@@ -82,10 +82,10 @@ for (( i=0; i<len1; i++ )); do
         else
             type="transversion"
             ((transversions++))
-        fi
+fi
 
         echo "$((i+1)) $base1 $base2 $type"
-    fi
+fi
 done
 
 
@@ -93,5 +93,32 @@ done
 #as a mismatch and then group it into either a transition, or a transversion. after classifcation is done, echo is used to print out locations of 
 #mismatched bases, and the type of mismatch present.
 
+
+
+#percent identity calculation
+
+percent_identity=$(awk -v id="$identical" -v len="$len1" 'BEGIN { printf "%.2f", (id / len) * 100 }')
+
+#"%.2f" displays two digits after the decimal, simialr to rounding up to 0.01.
+#the awk string creates two awk variables identicals divided by total length. the BEGIN command is doing the computing
+
+
+#calculating Ti/Tv ratio
+
+if [ "$transversions" -eq 0 ]; then
+TiTv_ratio="NA"
+else
+TiTv_ratio=$(awk -v Ti="$transitions" -v Tv="$transversions" 'BEGIN { printf "%.2f", Ti / Tv }')
+fi
+
+
+#to print the summary:
+echo 
+echo "Summary:"
+echo "Sequence Length: $len1"
+echo "Identical Positions: $identical"
+echo "Mismatches: $mismatches"
+echo "Percent Identity: ${percent_identity}%"
+echo "Transition/Transversion ratio: $TiTv_ratio"
 
 

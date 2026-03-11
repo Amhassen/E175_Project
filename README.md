@@ -31,3 +31,10 @@
 #into transitions (A to G), (C-T), or transversions (A to T). the resulting output is the position of the mismatch, followed by the base at sequence1
 #then the base at sequence 2, then the classification of the mismatch. I also created a file named testing_classification.txt and saved the output of the 
 #script in its current state to it.
+
+
+#7: updated the final version of the script with Ti/Tv ratio and percent identity calculations. additionally, a summary page that displays once the 
+#script is ran with the values from all the tasks that the script computed. I created another test final name final_testing.txt and this
+#is the output of ./compare_seqs.sh data/seq1.fa data/seq2.fa at the final completed version of the script.
+
+
